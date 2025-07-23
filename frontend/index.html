@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Portal – Feed</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      padding: 2rem;
+    }
+    .job-card {
+      background-color: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .job-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .job-description {
+      margin: 0.5rem 0;
+    }
+    .job-skills span {
+      background-color: #e0ffe0;
+      padding: 2px 6px;
+      margin-right: 5px;
+      border-radius: 3px;
+      font-size: 0.9rem;
+    }
+    .job-budget {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: green;
+    }
+    .search-box {
+      margin-bottom: 1.5rem;
+    }
+    .search-box input {
+      padding: 0.5rem;
+      width: 220px;
+      border-radius: 5px;
+      border: 1px solid #bbb;
+    }
+    .search-box button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      margin-left: 6px;
+      color: #fff;
+      background: #10b981;
+      cursor: pointer;
+    }
+    .search-box button.clear {
+      background: #f59e42;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📋 Job Feed</h1>
+
+  <div class="search-box">
+    <input type="text" id="skillInput" placeholder="Filter by skill (e.g. React)" />
+    <button id="searchSkillBtn">Search</button>
+    <button id="clearSkillBtn" class="clear">Clear</button>
+  </div>
+
+  <div id="jobContainer">
+    <p>Loading jobs...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+   

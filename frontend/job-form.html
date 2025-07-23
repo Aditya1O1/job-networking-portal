@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Post a Job | Job & Networking Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 0 12px 2px #e6e6e6;
+            width: 350px;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            color: #444;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 0.7rem;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .small {
+            font-size: 0.92rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.9rem;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #059669;
+        }
+
+        .msg {
+            margin: 1rem 0 0 0;
+            color: #e11d48;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .success {
+            color: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+      <div class="form-container">
+            <h2>Post a Job</h2>
+
+            <!-- Wallet and Payment Section -->
+            <button id="connectWalletBtn">🔗 Connect Wallet</button>
+            <div id="walletAddress" style="margin: 5px 0; color: green;"></div>
+
+            <button id="payFeeBtn" style="background: orange;">💸 Pay 0.001 SepoliaETH</button>
+            <div id="paymentStatus" style="margin-bottom: 1rem;"></div>
+
+            <form id="jobForm">
+                  <label for="title">Job Title *</label>
+                  <input type="text" id="title" required />
+
+                  <label for="description">Description *</label>
+                  <textarea id="description" required rows="3"></textarea>
+
+                  <label for="skills">Skills (comma separated) *</label>
+                  <input type="text" id="skills" required placeholder="e.g. HTML, CSS, JavaScript" />
+
+                  <label for="budget">Budget (₹) *</label>
+                  <input type="number" id="budget" required min="1" />
+
+                  <button type="submit">Post Job</button>
+                  <div class="msg" id="msg"></div>
+                </form>
+
+            <div style="margin-top:1rem; text-align:center;">
+                  <a href="index.html" style="color:#007bff;text-decoration:none;">⬅ Back to Job Feed</a>
+                </div>
+          </div>
+
+    <!-- Ethers.js and Custom JS -->
+
+
+
+    <!-- Ethers.js and Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="job-form.js"></script>
+
+</body>
+
+</html>
