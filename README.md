@@ -5,16 +5,6 @@ A modern, full-stack platform connecting job seekers and recruiters, featuring u
 
 ---
 
-## 🚀 Live Demo
-
-- **Frontend (User Portal):**  
-  [Your Frontend URL Here] (e.g. Vercel or Netlify)
-
-- **Backend API:**  
-  [Your Backend URL Here] (e.g. Render, Railway, Heroku)
-
-*Update these URLs after deployment.*
-
 ---
 
 ## 📁 Folder Structure
@@ -88,7 +78,7 @@ text
 
 4. **Run Backend Server**
 
-npm start
+node server.js
 
 text
 
