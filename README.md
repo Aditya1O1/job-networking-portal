@@ -152,11 +152,41 @@ Include JWT token in HTTP Authorization header as:
 
 ---
 
-## 💸 Payments & Wallets
+## 💸 Payments & Wallet Integration
 
 - Users pay a platform fee in ETH on Sepolia testnet before posting a job.
 - Payment flows use MetaMask wallet and `ethers.js`.
 - The admin wallet address is configurable in `frontend/job-form.js`.
+
+
+
+
+Users pay a platform fee in ETH on the Sepolia testnet before posting a job. The platform uses MetaMask and ethers.js for wallet connection and transaction handling.
+
+### Admin Wallet (Platform’s Receiving Wallet)
+
+- **Network:** Ethereum Sepolia Testnet  
+- **Admin Wallet Address:**  
+`0x05e09F7054EE4249be59b0a552D4F79AF44e22B2`
+
+### Sample User Wallet (Demo MetaMask Wallet)
+
+- **User Wallet Address:**  
+`0xd0c111389EC1c7201484f0a3F4B8AEB18d6A8d27`
+
+### Verified Testnet Transaction
+
+- **Transaction Hash:**  
+`0x629e806a399aaccddc7bd72bc9da4c9ae0ffebcd38e215c86ce75796a928f0ad`
+
+- **Transaction Explorer Link:**  
+[View on Sepolia Etherscan](https://sepolia.etherscan.io/tx/0x629e806a399aaccddc7bd72bc9da4c9ae0ffebcd38e215c86ce75796a928f0ad)
+
+- **Status:** Success  
+- **From:** User’s MetaMask wallet (`0xd0c111389EC1c7201484f0a3F4B8AEB18d6A8d27`)  
+- **To:** Admin Wallet (`0x05e09F7054EE4249be59b0a552D4F79AF44e22B2`)
+
+*Note: All payments are done on testnets only. Private keys are never included or shared.*
 
 ---
 
