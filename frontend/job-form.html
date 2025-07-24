@@ -1,125 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
     <title>Post a Job | Job & Networking Portal</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8fafc;
-            display: flex;
-            min-height: 100vh;
-            justify-content: center;
-            align-items: center;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        .form-container {
-            background: #fff;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 0 12px 2px #e6e6e6;
-            width: 350px;
-        }
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        h2 {
-            margin-bottom: 1rem;
-            color: #333;
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-top: 1rem;
-            color: #444;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            margin-top: 5px;
-            padding: 0.7rem;
-            border-radius: 5px;
-            border: 1px solid #aaa;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-
-        .small {
-            font-size: 0.92rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        button {
-            width: 100%;
-            padding: 0.9rem;
-            background: #10b981;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.05rem;
-            margin-top: 0.5rem;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #059669;
-        }
-
-        .msg {
-            margin: 1rem 0 0 0;
-            color: #e11d48;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .success {
-            color: #16a34a;
-        }
-    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981', // green
+                        secondary: '#f59e42', // orange
+                    },
+                },
+            },
+        };
+    </script>
 </head>
 
-<body>
-      <div class="form-container">
-            <h2>Post a Job</h2>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6 font-sans">
 
-            <!-- Wallet and Payment Section -->
-            <button id="connectWalletBtn">🔗 Connect Wallet</button>
-            <div id="walletAddress" style="margin: 5px 0; color: green;"></div>
+    <main class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
 
-            <button id="payFeeBtn" style="background: orange;">💸 Pay 0.001 SepoliaETH</button>
-            <div id="paymentStatus" style="margin-bottom: 1rem;"></div>
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Post a Job</h2>
 
-            <form id="jobForm">
-                  <label for="title">Job Title *</label>
-                  <input type="text" id="title" required />
+        <!-- Wallet Buttons -->
+        <div class="flex flex-col space-y-3 mb-6">
+            <button id="connectWalletBtn"
+                class="w-full bg-primary text-white py-3 rounded-md hover:bg-green-600 transition">
+                🔗 Connect Wallet
+            </button>
+            <div id="walletAddress" class="text-green-600 text-center font-mono"></div>
 
-                  <label for="description">Description *</label>
-                  <textarea id="description" required rows="3"></textarea>
+            <button id="payFeeBtn" class="w-full bg-secondary text-white py-3 rounded-md hover:bg-amber-600 transition"
+                style="background-color: #f59e42;">
+                💸 Pay 0.001 SepoliaETH
+            </button>
+            <div id="paymentStatus" class="text-center text-orange-600 min-h-[1.5rem] font-semibold"></div>
+        </div>
 
-                  <label for="skills">Skills (comma separated) *</label>
-                  <input type="text" id="skills" required placeholder="e.g. HTML, CSS, JavaScript" />
+        <!-- Job Posting Form -->
+        <form id="jobForm" class="space-y-5">
 
-                  <label for="budget">Budget (₹) *</label>
-                  <input type="number" id="budget" required min="1" />
+            <div>
+                <label for="title" class="block text-gray-700 font-semibold mb-1">Job Title <span
+                        class="text-red-500">*</span></label>
+                <input type="text" id="title" required
+                    class="w-full px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                    placeholder="Enter job title" />
+            </div>
 
-                  <button type="submit">Post Job</button>
-                  <div class="msg" id="msg"></div>
-                </form>
+            <div>
+                <label for="description" class="block text-gray-700 font-semibold mb-1">Description <span
+                        class="text-red-500">*</span></label>
+                <textarea id="description" required rows="3"
+                    class="w-full px-4 py-2 border rounded-md border-gray-300 resize-y focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                    placeholder="Describe the job"></textarea>
+            </div>
 
-            <div style="margin-top:1rem; text-align:center;">
-                  <a href="index.html" style="color:#007bff;text-decoration:none;">⬅ Back to Job Feed</a>
-                </div>
-          </div>
+            <div>
+                <label for="skills" class="block text-gray-700 font-semibold mb-1">Skills (comma separated) <span
+                        class="text-red-500">*</span></label>
+                <input type="text" id="skills" required placeholder="e.g. HTML, CSS, JavaScript"
+                    class="w-full px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" />
+            </div>
 
-    <!-- Ethers.js and Custom JS -->
+            <div>
+                <label for="budget" class="block text-gray-700 font-semibold mb-1">Budget (₹) <span
+                        class="text-red-500">*</span></label>
+                <input type="number" id="budget" required min="1"
+                    class="w-full px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                    placeholder="Enter your budget" />
+            </div>
 
+            <button type="submit"
+                class="w-full bg-primary text-white py-3 rounded-md text-lg font-semibold hover:bg-green-600 transition">
+                Post Job
+            </button>
 
+            <div id="msg" class="text-center mt-2 font-semibold text-red-600"></div>
+        </form>
 
-    <!-- Ethers.js and Custom JS -->
+        <div class="mt-6 text-center">
+            <a href="index.html" class="text-primary hover:underline">
+                ⬅ Back to Job Feed
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Ethers.js and Your JS -->
     <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
     <script src="job-form.js"></script>
 

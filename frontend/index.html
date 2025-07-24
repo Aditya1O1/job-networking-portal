@@ -1,81 +1,63 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Job Portal – Feed</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #f4f4f4;
-      padding: 2rem;
+
+  <!-- Tailwind CSS CDN (play safe with version 3.3.2) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: Customize Tailwind config (if you want colors etc) -->
+  <script>
+    // Simple example to enable custom colors if needed
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10b981', // green for buttons
+            secondary: '#f59e42', // amber for clear button
+          },
+        },
+      },
     }
-    .job-card {
-      background-color: white;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .job-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-    .job-description {
-      margin: 0.5rem 0;
-    }
-    .job-skills span {
-      background-color: #e0ffe0;
-      padding: 2px 6px;
-      margin-right: 5px;
-      border-radius: 3px;
-      font-size: 0.9rem;
-    }
-    .job-budget {
-      margin-top: 0.5rem;
-      font-style: italic;
-      color: green;
-    }
-    .search-box {
-      margin-bottom: 1.5rem;
-    }
-    .search-box input {
-      padding: 0.5rem;
-      width: 220px;
-      border-radius: 5px;
-      border: 1px solid #bbb;
-    }
-    .search-box button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      margin-left: 6px;
-      color: #fff;
-      background: #10b981;
-      cursor: pointer;
-    }
-    .search-box button.clear {
-      background: #f59e42;
-    }
-  </style>
+  </script>
 </head>
-<body>
+<body class="bg-gray-100 min-h-screen p-6 font-sans">
 
-  <h1>📋 Job Feed</h1>
+  <main class="max-w-4xl mx-auto">
 
-  <div class="search-box">
-    <input type="text" id="skillInput" placeholder="Filter by skill (e.g. React)" />
-    <button id="searchSkillBtn">Search</button>
-    <button id="clearSkillBtn" class="clear">Clear</button>
-  </div>
+    <h1 class="text-4xl font-extrabold mb-8 text-gray-800">📋 Job Feed</h1>
 
-  <div id="jobContainer">
-    <p>Loading jobs...</p>
-  </div>
+    <!-- Search Box -->
+    <div class="flex space-x-3 mb-8">
+      <input
+        id="skillInput"
+        type="text"
+        placeholder="Filter by skill (e.g. React)"
+        class="flex-grow rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+      />
+      <button
+        id="searchSkillBtn"
+        class="bg-primary text-white rounded-md px-5 py-2 hover:bg-green-600 transition"
+      >
+        Search
+      </button>
+      <button
+        id="clearSkillBtn"
+        class="bg-secondary text-white rounded-md px-5 py-2 hover:bg-amber-600 transition"
+      >
+        Clear
+      </button>
+    </div>
+
+    <!-- Job Container -->
+    <div id="jobContainer" class="space-y-6 min-h-[200px]">
+      <p class="text-gray-500 text-center">Loading jobs...</p>
+    </div>
+
+  </main>
 
   <script src="script.js"></script>
 </body>
 </html>
-   

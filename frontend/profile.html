@@ -1,99 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <title>User Profile | Job & Networking Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f6fc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+    /* Optional scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-    .form-container {
-      background: #fff;
-      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px #e3e3e3;
-      min-width: 340px;
-    }
-    h2 {
-      text-align: center;
-    }
-    label {
-      margin-top: 1rem;
-      display: block;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.65rem;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-      margin-top: 6px;
-      box-sizing: border-box;
-    }
-    textarea {
-      resize: vertical;
-    }
-    button {
-      width: 100%;
-      margin-top: 1.2rem;
-      padding: 0.8rem;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.05rem;
-    }
-    button:hover {
-      background: #0053bc;
-    }
-    .msg {
-      margin-top: 1rem;
-      text-align: center;
-      color: #d32f2f;
-    }
-    .success {
-      color: #1f8e3c;
-    }
-    .button-secondary {
+    ::-webkit-scrollbar-thumb {
       background: #10b981;
-      margin-top: 0.5rem;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #059669;
     }
   </style>
 </head>
-<body>
-  <div class="form-container">
-    <h2>Edit Profile</h2>
-    <form id="profileForm">
-      <label for="name">Name *</label>
-      <input type="text" id="name" required />
 
-      <label for="bio">Bio</label>
-      <textarea id="bio" placeholder="Briefly describe yourself" rows="3"></textarea>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6 font-sans">
 
-      <label for="linkedin">LinkedIn URL</label>
-      <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username" />
+  <main class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Edit Profile</h2>
 
-      <label for="wallet">Wallet Address</label>
-      <input type="text" id="wallet" />
+    <form id="profileForm" class="space-y-5">
 
-      <label for="skills">Skills (comma separated)</label>
-      <input type="text" id="skills" placeholder="JavaScript, React, Python" />
+      <div>
+        <label for="name" class="block text-gray-700 font-semibold mb-1">Name <span class="text-red-500">*</span></label>
+        <input
+          type="text"
+          id="name"
+          required
+          class="w-full px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Your full name"
+        />
+      </div>
 
-      <!-- 🧠 Suggest Skills from Bio -->
-      <button type="button" id="suggestBtn" class="button-secondary">🧠 Suggest Skills from Bio</button>
+      <div>
+        <label for="bio" class="block text-gray-700 font-semibold mb-1">Bio</label>
+        <textarea
+          id="bio"
+          placeholder="Briefly describe yourself"
+          rows="3"
+          class="w-full px-4 py-2 border rounded-md border-gray-300 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        ></textarea>
+      </div>
 
-      <button type="submit">Save Profile</button>
-      <div id="msg" class="msg"></div>
+      <div>
+        <label for="linkedin" class="block text-gray-700 font-semibold mb-1">LinkedIn URL</label>
+        <input
+          type="url"
+          id="linkedin"
+          placeholder="https://linkedin.com/in/username"
+          class="w-full px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+
+      <div>
+        <label for="wallet" class="block text-gray-700 font-semibold mb-1">Wallet Address</label>
+        <input
+          type="text"
+          id="wallet"
+          class="w-full px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Your public wallet address"
+        />
+      </div>
+
+      <div>
+        <label for="skills" class="block text-gray-700 font-semibold mb-1">Skills (comma separated)</label>
+        <input
+          type="text"
+          id="skills"
+          placeholder="JavaScript, React, Python"
+          class="w-full px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+
+      <!-- Suggest Skills Button -->
+      <button
+        type="button"
+        id="suggestBtn"
+        class="bg-green-500 hover:bg-green-600 text-white rounded-md py-2 w-full font-semibold transition"
+      >
+        🧠 Suggest Skills from Bio
+      </button>
+
+      <!-- Save Profile Button -->
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-700 text-white rounded-md py-3 w-full font-semibold transition"
+      >
+        Save Profile
+      </button>
+
+      <!-- Message Display -->
+      <div id="msg" class="text-center mt-3 text-red-600 min-h-[1.25rem]"></div>
     </form>
-    <div style="margin-top:1.3rem; text-align:center;">
-      <a href="index.html" style="text-decoration:none; color:#007bff;">⬅ Back to Jobs</a>
+
+    <div class="mt-6 text-center">
+      <a href="index.html" class="text-blue-600 hover:underline font-semibold">
+        ⬅ Back to Jobs
+      </a>
     </div>
-  </div>
+  </main>
+
   <script src="profile.js"></script>
 </body>
+
 </html>
